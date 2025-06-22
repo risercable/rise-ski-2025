@@ -5,19 +5,13 @@ namespace Core.Specifications;
 
 public class ProductQuerySpecification : BaseSpecification<Product>
 {
-    public ProductQuerySpecification(string? brand, string? type, string? sort, string? search = null)
+    public ProductQuerySpecification(ProductSpecParams specParams)
         : base(x =>
-            (string.IsNullOrWhiteSpace(brand) || x.Brand == brand) &&
-            (string.IsNullOrWhiteSpace(type) || x.Type == type)
+            (!specParams.Brands.Any() || specParams.Brands.Contains(x.Brand)) &&
+            (!specParams.Types.Any() || specParams.Types.Contains(x.Type))
         )
     {
-        if (string.IsNullOrWhiteSpace(sort))
-        {
-            AddOrderBy(x => x.Name);
-        }
-        else
-        {
-            switch (sort)
+            switch (specParams.Sort)
             {
                 case "priceAsc":
                     AddOrderBy(x => x.Price);
@@ -29,11 +23,10 @@ public class ProductQuerySpecification : BaseSpecification<Product>
                     AddOrderBy(x => x.Name);
                     break;
             }
-        }
         
-        if (!string.IsNullOrWhiteSpace(search))
+        if (!string.IsNullOrWhiteSpace(specParams.Search))
         {
-            AddSearch(x => x.Name.Contains(search));
+            AddSearch(x => x.Name.Contains(specParams.Search));
         }
     }
 }
