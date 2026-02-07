@@ -10,6 +10,9 @@ public interface ISpecification<T>
     Expression<Func<T, object>>? OrderByDescending { get; }
     Expression<Func<T, bool>>? Search { get; }
     bool IsDistinct { get; }
+    int Take { get; }
+    int Skip { get; }
+    bool IsPagingEnabled { get; }
 }
 
 public interface ISpecification<T, TResult> : ISpecification<T>

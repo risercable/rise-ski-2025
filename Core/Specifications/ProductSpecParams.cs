@@ -4,6 +4,17 @@ namespace Core.Specifications;
 
 public class ProductSpecParams
 {
+    private const int MaxPageSige = 50;
+    public int PageIndex { get; set; } = 1;
+
+    public int _pageSize = 6;
+    
+    public int PageSize
+    {
+        get => _pageSize;
+        set => _pageSize = (value > MaxPageSige) ? MaxPageSige : value;
+    }
+
     private List<string> _brands = [];
     public List<string> Brands
     {
