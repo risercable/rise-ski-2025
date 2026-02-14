@@ -18,6 +18,16 @@ public class BaseSpecification<T>(Expression<Func<T, bool>>? criteria) : ISpecif
     public int Take { get; private set;}
 
     public int Skip { get; private set;}
+    public bool IsPagingEnable { get; private set;}
+    public IQueryable<T> ApplyCriteria(IQueryable<T> query)
+    {
+        if (Criteria != null)
+        {
+            query = query.Where(Criteria);
+        }
+
+        return query;
+    }
 
     public bool IsPagingEnabled { get; private set;}
 

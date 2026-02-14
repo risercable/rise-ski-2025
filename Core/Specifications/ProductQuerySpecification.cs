@@ -7,6 +7,7 @@ public class ProductQuerySpecification : BaseSpecification<Product>
 {
     public ProductQuerySpecification(ProductSpecParams specParams)
         : base(x =>
+            (string.IsNullOrEmpty(specParams.Search) || x.Name.ToLower().Contains(specParams.Search)) &&
             (!specParams.Brands.Any() || specParams.Brands.Contains(x.Brand)) &&
             (!specParams.Types.Any() || specParams.Types.Contains(x.Type))
         )

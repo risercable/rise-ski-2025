@@ -39,6 +39,12 @@ public class ProductSpecParams
 
     public string? Sort { get; set; }
 
-    public string? Search { get; set; }
+    public string _search;
+
+    public string? Search
+    {
+        get => _search ?? "";
+        set => _search = value.ToLower();
+    }
     
 }
