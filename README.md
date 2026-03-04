@@ -11,7 +11,7 @@
 Before you begin, ensure you have the following installed:
 
 - [.NET SDK 9.0+](https://dotnet.microsoft.com/download)
-- [Docker Desktop]([https://www.docker.com/get-started](https://www.docker.com/products/docker-desktop/))
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Postman 
 
 Steps
