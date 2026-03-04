@@ -1,6 +1,6 @@
 # C# .Net Core for Ski Shop - Backend for Angular Frontend -
 
-## A fully functional Ski Shop project written in C# to Handle API Requests within it's Frontend Counterpart -
+## A fully functional Ski Shop project written in C# to Handle API Requests within it's Frontend Counterpart - [ClientRisSki](https://github.com/risercable/clientSkinet)
 
 ## Resources
 
